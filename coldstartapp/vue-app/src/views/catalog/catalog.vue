@@ -4,6 +4,8 @@ import ListHeader from '@/components/list-header.vue';
 import Modal from '@/components/modal.vue';
 import CatalogList from './catalog-list.vue';
 
+const captains = console;
+
 export default {
   name: 'Catalog',
   data() {
@@ -27,13 +29,14 @@ export default {
     ...mapGetters('catalog', { catalog: 'catalog' }),
   },
   methods: {
-    ...mapActions('icecreams', ['postOrderAction']),
+    ...mapActions('icecreams', ['buyIcecreamAction']),
     ...mapActions('catalog', ['getCatalogAction']),
     askToBuy(icecream) {
       this.icecreamToBuy = icecream;
       this.showModal = true;
       if (this.icecreamToBuy.Name) {
         this.message = `Would you like to buy ${this.icecreamToBuy.Name}?`;
+        captains.log(this.message);
       }
     },
     closeModal() {
@@ -42,8 +45,10 @@ export default {
     buyIcecream(shippingAddress) {
       this.closeModal();
       if (this.icecreamToBuy) {
+        captains.log(`You said you want to buy ${this.icecreamToBuy.Name}`);
+        captains.log(`Address: ${shippingAddress}`);
         this.icecreamToBuy.ShippingAddress = shippingAddress;
-        this.postOrderAction(this.icecreamToBuy);
+        this.buyIcecreamAction(this.icecreamToBuy);
       }
     },
     async getCatalog() {
