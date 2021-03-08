@@ -4,6 +4,8 @@ import ListHeader from '@/components/list-header.vue';
 import Modal from '@/components/modal.vue';
 import CatalogList from './catalog-list.vue';
 
+const captains = console;
+
 export default {
   name: 'Catalog',
   data() {
@@ -32,7 +34,7 @@ export default {
     askToBuy(icecream) {
       this.icecreamToBuy = icecream;
       this.showModal = true;
-      if (this.icecreamToBuy.Name) {c
+      if (this.icecreamToBuy.Name) {
         this.message = `Would you like to buy ${this.icecreamToBuy.Name}?`;
         captains.log(this.message);
       }
