@@ -2,12 +2,10 @@
 import HeaderBarBrand from '@/components/header-bar-brand.vue';
 import AuthLogin from '@/components/auth-login.vue';
 import AuthLogout from '@/components/auth-logout.vue';
+import getUserInfo from '../assets/js/userInfo';
 
 export default {
   name: 'HeaderBar',
-  props: {
-    auth: Boolean,
-  },
   components: {
     HeaderBarBrand,
     AuthLogin,
@@ -15,7 +13,14 @@ export default {
   },
   data() {
     return {
+      userInfo: {
+        type: Object,
+        default() {},
+      },
     };
+  },
+  async created() {
+    this.userInfo = await getUserInfo();
   },
   methods: {
   },
@@ -29,21 +34,22 @@ export default {
       <div class="navbar-menu">
         <div class="navbar-start">
           <router-link class="navbar-item nav-home" to="/">Home</router-link>
-          <router-link class="navbar-item nav-home" to="/icecreams">
+          <router-link class="navbar-item nav-home" to="/icecreams"
+          v-if="userInfo">
           My ice creams
           </router-link>
         </div>
         <div class="navbar-end">
           <div class="navbar-item nav-home has-dropdown is-hoverable">
             <a class="navbar-link">Authentication</a>
-            <div class="navbar-dropdown" v-if="!auth">
+            <div class="navbar-dropdown" v-if="!userInfo">
               <AuthLogin provider="twitter" />
               <AuthLogin provider="github" />
               <AuthLogin provider="aad" />
               <AuthLogin provider="google" />
               <AuthLogin provider="facebook" />
             </div>
-            <div class="navbar-dropdown" v-if="auth">
+            <div class="navbar-dropdown" v-if="userInfo">
               <AuthLogout></AuthLogout>
             </div>
           </div>
