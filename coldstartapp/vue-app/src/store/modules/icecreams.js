@@ -1,7 +1,7 @@
 import axios from 'axios';
 import API from '../config';
 import { parseItem, parseList } from './action-utils';
-import { GET_ORDERS, POST_ORDERS } from './mutation-types';
+import { GET_ICECREAMS, ADD_ICECREAM } from './mutation-types';
 
 const captains = console;
 
@@ -12,31 +12,31 @@ export default {
     orders: [],
   },
   mutations: {
-    [GET_ORDERS](state, icecreams) {
+    [GET_ICECREAMS](state, icecreams) {
       state.icecreams = icecreams;
     },
-    [POST_ORDERS](state, icecream) {
+    [ADD_ICECREAM](state, icecream) {
       state.icecreams.unshift(icecream);
     },
   },
   actions: {
-    async getOrdersAction({ commit }) {
+    async getIcecreamsAction({ commit }) {
       try {
         const response = await axios.get(`${API}/orders`);
-        const orders = parseList(response);
-        commit(GET_ORDERS, orders);
-        return orders;
+        const icecreams = parseList(response);
+        commit(GET_ICECREAMS, icecreams);
+        return icecreams;
       } catch (error) {
         captains.error(error);
         throw new Error(error);
       }
     },
-    async postOrderAction({ commit }, order) {
+    async buyIcecreamAction({ commit }, icecream) {
       try {
-        const response = await axios.post(`${API}/orders`, order);
-        const newOrder = parseItem(response, 201);
-        commit(POST_ORDERS, newOrder);
-        return newOrder;
+        const response = await axios.post(`${API}/orders`, icecream);
+        const addedIcecream  = parseItem(response, 201);
+        commit(ADD_ICECREAM, addedIcecream );
+        return addedIcecream ;
       } catch (error) {
         captains.error(error);
         throw new Error(error);

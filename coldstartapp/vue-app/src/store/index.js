@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import catalogModule from './modules/catalog';
-import icecreamsModule from './modules/orders';
+import icecreamsModule from './modules/icecreams';
 
 Vue.use(Vuex);
 

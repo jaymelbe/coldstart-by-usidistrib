@@ -3,6 +3,8 @@ import CardContent from '@/components/card-content.vue';
 import ButtonFooter from '../../components/button-footer.vue';
 import getUserInfo from '../../assets/js/userInfo';
 
+const captains = console;
+
 export default {
   name: 'CatalogList',
   props: {
@@ -32,6 +34,7 @@ export default {
   },
   methods: {
     buyIceCream(icecream) {
+      captains.log(`You tried to buy ${icecream.Name}`);
       this.$emit('bought', icecream);
     },
   },
