@@ -34,7 +34,7 @@ export default {
       <div class="navbar-menu">
         <div class="navbar-start">
           <router-link class="navbar-item nav-home" to="/">Home</router-link>
-          <router-link class="navbar-item nav-home" to="/icecreams" 
+          <router-link class="navbar-item nav-home" to="/icecreams"
           v-if="userInfo">
           My ice creams
           </router-link>
