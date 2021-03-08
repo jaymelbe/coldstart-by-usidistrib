@@ -1,5 +1,7 @@
 <script>
 import CardContent from '@/components/card-content.vue';
+import ButtonFooter from '../../components/button-footer.vue';
+import getUserInfo from '../../assets/js/userInfo';
 
 export default {
   name: 'CatalogList',
@@ -15,10 +17,19 @@ export default {
   },
   components: {
     CardContent,
+    ButtonFooter,
   },
   data() {
     return {
+      userInfo: {
+        type: Object,
+        default() {},
+      },
+      dataIndex: 0,
     };
+  },
+  async created() {
+    this.userInfo = await getUserInfo();
   },
   methods: {
   },
@@ -43,6 +54,15 @@ export default {
             :description="icecream.Description"
             :imageurl="icecream.ImageUrl"
           />
+          <footer v-if="auth" class="card-footer">
+            <ButtonFooter
+            class="edit-item"
+            iconClasses="fas fa-shopping-cart"
+            label="Pre-order"
+            :dataIndex="index"
+            :dataId=dataIndex+1
+            />
+          </footer>
         </div>
       </div>
     </div>

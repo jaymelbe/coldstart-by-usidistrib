@@ -5,6 +5,9 @@ import AuthLogout from '@/components/auth-logout.vue';
 
 export default {
   name: 'HeaderBar',
+  props: {
+    auth: Boolean,
+  },
   components: {
     HeaderBarBrand,
     AuthLogin,
@@ -12,24 +15,9 @@ export default {
   },
   data() {
     return {
-      auth: true,
     };
   },
-  async created() {
-    await this.getUserInfo();
-  },
   methods: {
-    async getUserInfo() {
-      console.log('getting user info');
-      const response = await fetch('/.auth/me');
-      // const payload = await response.json();
-      // const { clientPrincipal } = payload;
-      // console.log('got this: ', clientPrincipal());
-      console.log('got this response: ', response);
-      // console.log('got this payload: ', payload);
-      // // return clientPrincipal;
-      console.log('got user info');
-    },
   },
 };
 </script>
