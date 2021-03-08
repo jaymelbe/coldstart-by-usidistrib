@@ -1,8 +1,7 @@
 import axios from 'axios';
 import API from '../config';
 import { parseList } from './action-utils';
-import GET_ORDERS from './mutation-types';
-import POST_ORDERS from './mutation-types';
+import {GET_ORDERS, POST_ORDERS } from './mutation-types';
 
 const captains = console;
 
