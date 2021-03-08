@@ -31,6 +31,9 @@ export default {
     this.userInfo = await getUserInfo();
   },
   methods: {
+    buyIceCream(icecream) {
+      this.$emit('bought', icecream);
+    },
   },
 };
 </script>
@@ -43,7 +46,7 @@ export default {
     </div>
     <div class="container">
       <div
-        v-for="(icecream) in icecreams"
+        v-for="(icecream, index) in icecreams"
         :key="icecream.Id"
         role="presentation"
       >
@@ -57,6 +60,7 @@ export default {
             <ButtonFooter
             class="edit-item"
             iconClasses="fas fa-shopping-cart"
+            @clicked="buyIceCream"
             label="Pre-order"
             :dataIndex="index"
             :dataId="icecream.Id"
