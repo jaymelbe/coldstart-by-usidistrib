@@ -1,3 +1,5 @@
 const GET_CATALOG = 'GET_CATALOG';
+const GET_ORDERS = 'GET_ORDERS';
+const POST_ORDERS = 'POST_ORDERS';
 
-export { GET_CATALOG as default };
+export { GET_CATALOG, GET_ORDERS, POST_ORDERS as default };
