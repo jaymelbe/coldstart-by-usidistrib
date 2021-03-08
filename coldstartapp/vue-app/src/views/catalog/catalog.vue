@@ -43,7 +43,7 @@ export default {
       this.closeModal();
       if (this.icecreamToBuy) {
         this.icecreamToBuy.ShippingAddress = shippingAddress;
-        this.buyIcecreamAction(this.icecreamToBuy);
+        this.postOrderAction(this.icecreamToBuy);
       }
     },
     async getCatalog() {
