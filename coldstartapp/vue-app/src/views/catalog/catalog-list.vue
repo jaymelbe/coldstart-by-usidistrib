@@ -25,7 +25,6 @@ export default {
         type: Object,
         default() {},
       },
-      dataIndex: 0,
     };
   },
   async created() {
@@ -54,13 +53,15 @@ export default {
             :description="icecream.Description"
             :imageurl="icecream.ImageUrl"
           />
-          <footer v-if="auth" class="card-footer">
+          <footer class="card-footer">
             <ButtonFooter
             class="edit-item"
             iconClasses="fas fa-shopping-cart"
             label="Pre-order"
             :dataIndex="index"
-            :dataId=dataIndex+1
+            :dataId="icecream.Id"
+            :item="icecream"
+            v-if="userInfo"
             />
           </footer>
         </div>
