@@ -12,6 +12,13 @@
       "type": "http",
       "direction": "out",
       "name": "res"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "myQueueItem",
+      "queueName": "customer-orders",
+      "connection": "DefaultEndpointsProtocol=https;AccountName=usicoldqueues;AccountKey=1LvOIe6Dj4tpeGFlAO+h/ySReqKUR0pc+Ht6YMQJ5nNCzcmnZS0fau1hj7Lxw9428x9J0cTr6SpLHHbZac8YLg==;EndpointSuffix=core.windows.net"
     }
   ]
 }
