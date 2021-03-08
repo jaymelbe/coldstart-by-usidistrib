@@ -34,9 +34,9 @@ export default {
     async buyIcecreamAction({ commit }, icecream) {
       try {
         const response = await axios.post(`${API}/orders`, icecream);
-        const addedIcecream  = parseItem(response, 201);
-        commit(ADD_ICECREAM, addedIcecream );
-        return addedIcecream ;
+        const addedIcecream = parseItem(response, 201);
+        commit(ADD_ICECREAM, addedIcecream);
+        return addedIcecream;
       } catch (error) {
         captains.error(error);
         throw new Error(error);
