@@ -3,7 +3,9 @@ var uuid = require('uuid');
 
 module.exports = async function (context, req) {
   // Get the user details from the request
+  console.log('post order 1');
   const user = getUser(req);
+  console.log('post order 2');
 
   // Get the pre-order from the request
   const order = {
@@ -16,6 +18,7 @@ module.exports = async function (context, req) {
     DriverId: null,
     LastPosition: null
   };
+  console.log('post order 3');
 
   
     // Add the pre-order JSON document in a queue
