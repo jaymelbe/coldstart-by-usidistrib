@@ -33,9 +33,13 @@ export default {
     },
     async buyIcecreamAction({ commit }, icecream) {
       try {
+        captains.log('buy ice cream action 1');
         const response = await axios.post(`${API}/orders`, icecream);
+        captains.log('buy ice cream action 2');
         const addedIcecream = parseItem(response, 201);
+        captains.log('buy ice cream action 3');
         commit(ADD_ICECREAM, addedIcecream);
+        captains.log('buy ice cream action 4');
         return addedIcecream;
       } catch (error) {
         captains.error(error);
