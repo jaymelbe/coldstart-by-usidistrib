@@ -1,7 +1,10 @@
 import axios from 'axios';
 import API from '../config';
 import { parseItem, parseList } from './action-utils';
-import { GET_ICECREAMS, ADD_ICECREAM } from './mutation-types';
+import {
+  GET_ICECREAMS,
+  ADD_ICECREAM,
+} from './mutation-types';
 
 const captains = console;
 
@@ -9,7 +12,7 @@ export default {
   strict: process.env.NODE_ENV !== 'production',
   namespaced: true,
   state: {
-    orders: [],
+    icecreams: [],
   },
   mutations: {
     [GET_ICECREAMS](state, icecreams) {
@@ -20,6 +23,7 @@ export default {
     },
   },
   actions: {
+    // actions let us get to ({ state, getters, commit, dispatch }) {
     async getIcecreamsAction({ commit }) {
       try {
         const response = await axios.get(`${API}/orders`);

@@ -1,6 +1,6 @@
 <script>
+import ButtonFooter from '@/components/button-footer.vue';
 import CardContent from '@/components/card-content.vue';
-import ButtonFooter from '../../components/button-footer.vue';
 import getUserInfo from '../../assets/js/userInfo';
 
 const captains = console;
@@ -61,14 +61,14 @@ export default {
           />
           <footer class="card-footer">
             <ButtonFooter
-            class="edit-item"
-            iconClasses="fas fa-shopping-cart"
-            @clicked="buyIceCream"
-            label="Pre-order"
-            :dataIndex="index"
-            :dataId="icecream.Id"
-            :item="icecream"
-            v-if="userInfo"
+              class="edit-item"
+              iconClasses="fas fa-shopping-cart"
+              @clicked="buyIceCream"
+              label="Pre-order"
+              :dataIndex="index"
+              :dataId="icecream.Id"
+              :item="icecream"
+              v-if="userInfo"
             />
           </footer>
         </div>

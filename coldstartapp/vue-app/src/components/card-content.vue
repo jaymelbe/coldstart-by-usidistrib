@@ -1,13 +1,6 @@
 <script>
-
 export default {
   name: 'CardContent',
-  data() {
-    return {
-    };
-  },
-  components: {
-  },
   props: {
     id: {
       type: String,

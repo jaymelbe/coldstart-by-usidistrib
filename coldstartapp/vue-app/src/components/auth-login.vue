@@ -19,5 +19,5 @@ export default {
 </script>
 
 <template>
-  <div class="auth-link navbar-item" @click="goAuth">{{ provider }}</div>
+  <div class="auth-link" @click="goAuth">{{ provider }}</div>
 </template>

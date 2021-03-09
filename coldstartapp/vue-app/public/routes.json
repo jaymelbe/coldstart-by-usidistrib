@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "route": "/.auth/login/facebook",
+      "statusCode": "404"
+    },
+    {
+      "route": "/.auth/login/google",
+      "statusCode": "404"
+    },
+    {
       "route": "/api/catalog"
     },
     {
