@@ -9,7 +9,7 @@ export default {
   strict: process.env.NODE_ENV !== 'production',
   namespaced: true,
   state: {
-    orders: [],
+    icecreams: [],
   },
   mutations: {
     [GET_ICECREAMS](state, icecreams) {
