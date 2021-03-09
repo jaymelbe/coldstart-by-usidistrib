@@ -1,12 +1,13 @@
 const { getUser } = require('../shared/user-utils');
 var uuid = require('uuid');
 
-
 module.exports = async function (context, req) {
   // Get the user details from the request
+  console.log('post order 1');
   const user = getUser(req);
+  console.log('post order 2');
 
-  // Build the pre-order JSON from the request
+  // Get the pre-order from the request
   const order = {
     Id: uuid.v4(),
     User: user.userDetails,
@@ -17,9 +18,11 @@ module.exports = async function (context, req) {
     DriverId: null,
     LastPosition: null
   };
+  console.log('post order 3');
 
-  try {
+  
     // Add the pre-order JSON document in a queue
+  try {
     console.log('Queueing order');
     context.bindings.myQueueItem = order;
 
